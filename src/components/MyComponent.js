@@ -2,6 +2,7 @@
 //function component
 import React from "react";
 import UserInfo from "./UserInfo";
+import DisplayInfo from "./DisplayInfo";
 class MyComponent extends React.Component {
  
   // JSX
@@ -9,6 +10,8 @@ class MyComponent extends React.Component {
     return(
     <div>
        <UserInfo/>
+       <br />
+       <DisplayInfo name='James' age='30' />
         </div>
         )  ;
   }
