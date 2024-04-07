@@ -9,20 +9,37 @@ class MyComponent extends React.Component {
   age: 18,
   };
 
-  handleClick(event) {
-    console.log("Click button");
-    console.log("My name is", this.state.name);
+  // handleClick(event) {
+  //   console.log("Click button");
+  //   console.log("My name is", this.state.name);
 
+  //   this.setState({
+  //     name: 'Eric'
+  //   })
+  // }
+
+  handleOnChangeInput = (event) =>{
     this.setState({
-      name: 'Eric'
+      name: event.target.value
     })
+console.log(event, event.target.value)
+  }
+
+  handleOnSubmit = (event) => {
+    event.preventDefault()
+   console.log(this.state)
   }
   // JSX
   render() {
     return   (
     <div>
       My name is {this.state.name}
-      <button onClick={(event) => {this.handleClick(event)}}>Click me</button>
+       <form onSubmit={(event) => this.handleOnSubmit(event)}>
+        <input type="text"
+        onChange={(event) => this.handleOnChangeInput(event) }
+        />
+       <button>Submit</button>
+       </form>
         </div>
         )  ;
   }
