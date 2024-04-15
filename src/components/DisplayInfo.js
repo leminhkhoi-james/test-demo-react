@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './DisplayInfo.scss';
 // class DisplayInfo extends React.Component {
 
@@ -17,6 +17,14 @@ const DisplayInfo = (props) => {
     const handleShowHideListUser = () => {
         setShowHideListUser(!isShowHideListUser)
     }
+
+    useEffect(
+        () => {
+            if (listUsers.length === 0) {
+                alert('You deleted all the users')
+            }
+            console.log('call useEffect')
+        }, [listUsers])
     return (
 
         <div>
@@ -31,7 +39,7 @@ const DisplayInfo = (props) => {
                         return (
                             <div key={user.id} className={user.age > 18 ? "green" : "red"}>
                                 <div>My name's {user.name} </div>
-                                <div>My name's {user.age} </div>
+                                <div>My age's {user.age} </div>
                                 <hr />
                             </div>
                         )
